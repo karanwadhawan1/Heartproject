@@ -1,0 +1,204 @@
+{% extends 'base.html' %}
+
+{% block title %}predict{% endblock title %}
+
+{% block body %}
+
+<section class="jumbotron text-center">
+  <div class="container  my-2">
+    <h1 class="jumbotron-heading text-danger">HEART DISEASE PREDICTION MODEL</h1>
+    <p class="lead text-muted">Please fill the correct detail of person.</p>
+  </div>
+</section>
+
+<form class="row g-3 mx-3 my-2" method="post" >
+  {% csrf_token %}
+
+  <div class="col-md-3">
+  <label for="BMI"  class="form-label">BMI</label>
+    <input type="text"   placeholder="BMI" class="form-control" name='BMI' id="BMI">
+  </div>
+  <div class="col-md-3">
+    <label for="Smoking"  class="form-label">Smoking</label>
+    <select id="Smoking"    name='Smoking' class="form-select" >
+      <option value="DEFAULT" enabled>Choose...</option>
+      <option value="1">YES</option>
+      <option value="0">NO</option>
+    </select>
+  </div>
+  <div class="col-md-3">
+    <label for="AlcoholDrinking" class="form-label">Alcohol Drinking</label>
+    <select id="AlcoholDrinking"   name='AlcoholDrinking'  class="form-select">
+      <option value="DEFAULT" enabled>Choose...</option>
+      <option value="1">YES</option>
+      <option value="0">NO</option>
+    </select>
+  </div>
+  <div class="col-md-3">
+    <label for="Stroke" class="form-label">Stroke</label>
+    <select id="Stroke"  name='Stroke'  class="form-select">
+      <option value="DEFAULT" enabled>Choose...</option>
+      <option value="1">YES</option>
+      <option value="0">NO</option>
+    </select>
+  </div>
+  <div class="col-md-3">
+    <label for="DiffWalking" class="form-label">DiffWalking</label>
+    <select id="DiffWalking"  name='DiffWalking'  class="form-select">
+      <option value="DEFAULT" enabled>Choose...</option>
+      <option value="1">YES</option>
+      <option value="0">NO</option>
+    </select>
+  </div>
+  <div class="col-md-3">
+    <label for="Sex" class="form-label">Sex</label>
+    <select id="Sex"   name='Sex'  class="form-select">
+      <option value="DEFAULT" enabled>Choose...</option>
+      <option value="1">Male</option>
+      <option value="0">Female</option>
+    </select>
+  </div>
+  <div class="col-md-3">
+    <label for="Diabetic" class="form-label">Diabetic</label>
+    <select id="Diabetic"  name='Diabetic'  class="form-select">
+      <option value="DEFAULT" enabled>Choose...</option>
+      <option value="1">YES</option>
+      <option value="0">NO</option>
+    </select>
+  </div>
+  <div class="col-md-3">
+    <label for="PhysicalActivity" class="form-label">PhysicalActivity</label>
+    <select id="PhysicalActivity"  name='PhysicalActivity'    class="form-select">
+      <option value="DEFAULT" enabled>Choose...</option>
+      <option value="1">YES</option>
+      <option value="0">NO</option>
+    </select>
+  </div>
+  <div class="col-md-3">
+  <label for="SleepTime" class="form-label">SleepTime</label>
+    <input type="text"  name='SleepTime'   placeholder="SleepTime" class="form-control" id="SleepTime">
+  </div>
+  <div class="col-md-3">
+    <label for="Asthma" class="form-label">Asthma</label>
+    <select id="Asthma"  name='Asthma'   class="form-select">
+      <option value="DEFAULT" enabled>Choose...</option>
+      <option value="1">YES</option>
+      <option value="0">NO</option>
+    </select>
+  </div>
+  <div class="col-md-3">
+    <label for="KidneyDisease" class="form-label">Kidney Disease</label>
+    <select id="KidneyDisease"  name='KidneyDisease'  class="form-select">
+      <option value="DEFAULT" enabled>Choose...</option>
+      <option value="1">YES</option>
+      <option value="0">NO</option>
+    </select>
+  </div>
+  <div class="col-md-3">
+    <label for="SkinCance" class="form-label">Skin Cancer</label>
+    <select id="SkinCance"  name='SkinCance' class="form-select">
+      <option value="DEFAULT" enabled>Choose...</option>
+      <option value="1">YES</option>
+      <option value="0">NO</option>
+    </select>
+  </div>
+  <div class="col-md-3">
+    <label for="AgeCategory" class="form-label">Age Category</label>
+    <select id="AgeCategory"   name='AgeCategory'   class="form-select">
+      <option value="DEFAULT" enabled>Choose...</option>
+      <option value="1">18-24</option>
+      <option value="2">25-29</option>
+      <option value="3">30-34</option>
+      <option value="4">35-39</option>
+      <option value="5">40-44</option>
+      <option value="6">45-49</option>
+      <option value="7">50-54</option>
+      <option value="8">55-59</option>
+      <option value="9">60-64</option>
+      <option value="10">65-69</option>
+      <option value="11">70-74</option>
+      <option value="12">75-79</option>
+      <option value="13">80-older</option>
+    </select>
+  </div>
+  <div class="col-md-3">
+    <label for="GenralHealth" class="form-label">Genral Health</label>
+    <select id="GenralHealth"  name='GenralHealth'  class="form-select">
+      <option value="DEFAULT" enabled>Choose...</option>
+      <option value="5">Excellent</option>
+      <option value="4">Very Good</option>
+      <option value="3">Good</option>
+      <option value="2">Fair</option>
+      <option value="1">Poor</option>
+    </select>
+  </div>
+  <div class="col-md-3">
+    <label for="Race" class="form-label">Race</label>
+    <select id="Race"  name='Race'   class="form-select">
+      <option value="DEFAULT" enabled>Choose...</option>
+      <option value="1">AmericanIndian/Alaskan Native</option>
+      <option value="2">Asian</option>
+      <option value="3">Black</option>
+      <option value="4">Hispanic</option>
+      <option value="6">White</option>
+      <option value="5">Other..</option>
+    </select>
+  </div>
+  <div class="col-md-3">
+    <label for="PhysicalHealth" class="form-label">Physical Health</label>
+    <select id="PhysicalHealth"  name='PhysicalHealth'   class="form-select">
+      <option value="DEFAULT" enabled>Choose...</option>
+      <option value="5">Excellent</option>
+      <option value="4">Very Good</option>
+      <option value="3">Good</option>
+      <option value="2">Fair</option>
+      <option value="1">Poor</option>
+    </select>
+  </div>
+  <div class="col-md-3">
+    <label for="MentalHealth" class="form-label">Mental Health</label>
+    <select id="MentalHealth"  name='MentalHealth' class="form-select">
+      <option value="DEFAULT" enabled>Choose...</option>
+      <option value="5">Excellent</option>
+      <option value="4">Very Good</option>
+      <option value="3">Good</option>
+      <option value="2">Fair</option>
+      <option value="1">Poor</option>
+    </select>
+  </div>
+  <div class="col-12">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="gridCheck">
+      <label class="form-check-label" for="gridCheck">
+        Check me out
+      </label>
+    </div>
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+
+ 
+</form>
+
+{% if predict is 1 %}
+    <div class="alert alert-success" role="alert">
+      <h4 class="alert-heading">PERSON IS SAFE!</h4>
+      <p>Person is safe for Heart Disease.</p>
+      <hr>
+      <p class="mb-0">This prediction is predicted by machine learning model.</p>
+    </div>
+  {% endif %}  
+  {% if predict is 0 %}
+    <div class="alert alert-danger" role="alert">
+      <h4 class="alert-heading">PERSON IS NOT SAFE!</h4>
+      <p>Person is not safe for Heart Disease.</p>
+      <hr>
+      <p class="mb-0">This prediction is predicted by machine learning model.</p>
+    </div>
+
+  {% endif %}
+
+
+
+{% endblock body %}

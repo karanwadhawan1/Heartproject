@@ -1,0 +1,15 @@
+asgiref==3.5.2
+autopep8==1.6.0
+Django==4.0.5
+joblib==1.1.0
+numpy==1.22.4
+pycodestyle==2.8.0
+scikit-learn==1.1.1
+scipy==1.8.1
+sqlparse==0.4.2
+threadpoolctl==3.1.0
+toml==0.10.2
+tzdata==2022.1
+waitress==2.1.2
+whitenoise==6.2.0
+xgboost==1.6.1
